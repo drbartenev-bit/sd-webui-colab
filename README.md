@@ -1,5 +1,28 @@
-# <font color=red><b> This colab is now UNMAINTAINED and DEPRECATED. Meaning all stuff in here will <u>no longer works</u>. Please use [my new colab](https://colab.research.google.com/drive/1wEa-tS10h4LlDykd87TF5zzpXIIQoCmq) instead, thank you! </b>
+# Stable Diffusion WebUI — Google Colab
 
-<small><small><font color=gray>or clone this colab and maintain it your own way... it's all up to you! 😄<br>
-<font color=gray>The new colab will stay on google drive and will not be uploaded to github, this makes changes much easier that way.<br>
-<font color=gray>You still can report bugs in new colab at this repo or via dm 😉
+Этот форк содержит полный Colab-ноутбук для запуска AUTOMATIC1111 WebUI:
+
+- проверка наличия NVIDIA GPU;
+- установка системных инструментов и получение официального репозитория WebUI;
+- опциональное подключение Google Drive для сохранения моделей;
+- выборочные расширения (ControlNet, ADetailer, Dynamic Prompts, Tag Complete и другие);
+- скачивание модели по прямой ссылке, если у вас есть право доступа;
+- запуск с публичной временной ссылкой Gradio.
+
+## Запуск
+
+1. Откройте [`sd_webui_colab.ipynb`](sd_webui_colab.ipynb) в Google Colab.
+2. В Colab выберите **Среда выполнения → Сменить тип среды выполнения → GPU**.
+3. Запустите ячейки сверху вниз или выберите **Среда выполнения → Выполнить все**.
+4. Если включено хранение на Google Drive, разрешите доступ при запросе.
+5. Скопируйте ссылку `gradio.live`, напечатанную последней ячейкой.
+
+Первая установка может занять значительное время и скачать много данных. Модель не входит в репозиторий и не скачивается по умолчанию. Выбирайте только модели, к которым у вас есть законный доступ; gated-модели требуют собственной авторизации и принятия условий лицензии.
+
+## Надёжность и версии
+
+Ноутбук не принуждает Colab к установке случайных «самых новых» версий PyTorch/CUDA. Он оставляет CUDA-сборку PyTorch, предоставленную GPU runtime, и передаёт установку Python-зависимостей официальному скрипту AUTOMATIC1111. Так меньше риск повредить преднастроенное Colab-окружение конфликтующим pip-обновлением. Репозиторий WebUI клонируется из `master`; точные требования и совместимость меняются upstream.
+
+Сторонние расширения могут иметь несовместимые зависимости и развиваться независимо. Для наиболее надёжного первого запуска отключите необязательные расширения в ноутбуке; затем включайте их по одному. Colab не гарантирует доступность GPU или работу публичной ссылки.
+
+**Безопасность:** ссылка Gradio публичная и временная. Не вводите в опубликованном ноутбуке токены и пароли; не делитесь ссылкой с незнакомыми людьми. Запускайте только те расширения, которым доверяете.
